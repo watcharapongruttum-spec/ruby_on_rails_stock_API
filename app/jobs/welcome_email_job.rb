@@ -5,8 +5,7 @@ class WelcomeEmailJob < ApplicationJob
     user = User.find_by(id: user_id)
     return unless user
 
-    # ตัวอย่าง — ในระบบจริงจะเรียก EmailClient
-    Rails.logger.info "[Job] ส่ง welcome email ถึง #{user.email}"
-    # EmailClient.new.send_welcome(user)
+    Rails.logger.info("[WelcomeEmailJob] Sending welcome email to #{user.email}")
+    # ActionMailer จะมาเพิ่มตรงนี้ตอนมี mailer จริง
   end
 end
