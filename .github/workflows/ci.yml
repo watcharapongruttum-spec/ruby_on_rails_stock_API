@@ -42,13 +42,7 @@ jobs:
           bundler-cache: true
 
       - name: Setup database
-        run: |
-          bundle exec rails db:create db:migrate
+        run: bundle exec rails db:create db:migrate
 
       - name: Run tests
-        run: |
-          bundle exec rspec --format documentation
-
-      - name: Check test coverage
-        run: |
-          echo "Tests passed!"
+        run: bundle exec rspec --format documentation
