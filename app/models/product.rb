@@ -2,6 +2,16 @@
 class Product < ApplicationRecord
 
   # ──────────────────────────────────────────
+  # Associations
+  # ──────────────────────────────────────────
+  has_many :sale_items
+  has_many :sales, through: :sale_items
+  has_many :purchase_items
+  has_many :purchases, through: :purchase_items
+  has_many :inventories
+
+
+  # ──────────────────────────────────────────
   # Domain Rules (กฎที่ต้องเคารพเสมอ)
   # ──────────────────────────────────────────
   validates :name,     presence: true, length: { maximum: 100 }

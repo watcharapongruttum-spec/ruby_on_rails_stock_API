@@ -3,6 +3,17 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  # ──────────────────────────────────────────
+  # Associations
+  # ──────────────────────────────────────────
+  has_many :sales
+  has_many :sale_items, through: :sales
+  has_many :products,   through: :sale_items
+
+
+  # ──────────────────────────────────────────
+  # Domain Rules (กฎที่ต้องเคารพเสมอ)
+  # ──────────────────────────────────────────
   ROLES = UserRole::ALL
 
   validates :email,    presence: true,

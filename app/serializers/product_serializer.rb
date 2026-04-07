@@ -1,6 +1,5 @@
 # app/serializers/product_serializer.rb
 class ProductSerializer
-
   def initialize(product)
     @product = product
   end
@@ -17,7 +16,6 @@ class ProductSerializer
     }
   end
 
-  # สำหรับแปลงหลายรายการพร้อมกัน
   def self.collection(products)
     products.map { |p| new(p).as_json }
   end

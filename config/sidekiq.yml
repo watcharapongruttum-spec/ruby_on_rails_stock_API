@@ -1,0 +1,7 @@
+:concurrency: 5
+
+:schedule:
+  cleanup_tokens:
+    cron: "0 3 * * *"
+    class: "CleanupTokensJob"
+    queue: default
